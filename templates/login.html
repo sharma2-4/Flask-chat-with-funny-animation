@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Russo+One&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000;
+            background: #3399ff;
+            overflow: hidden;
+            margin: 0;
+        }
+
+        .ripple-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: white;
+            animation: ripple 15s infinite;
+            box-shadow: 0px 0px 1px 0px #508fb9;
+        }
+
+        .small {
+            width: 200px;
+            height: 200px;
+            left: -100px;
+            bottom: -100px;
+        }
+
+        .medium {
+            width: 400px;
+            height: 400px;
+            left: -200px;
+            bottom: -200px;
+        }
+
+        .large {
+            width: 600px;
+            height: 600px;
+            left: -300px;
+            bottom: -300px;
+        }
+
+        .xlarge {
+            width: 800px;
+            height: 800px;
+            left: -400px;
+            bottom: -400px;
+        }
+
+        .xxlarge {
+            width: 1000px;
+            height: 1000px;
+            left: -500px;
+            bottom: -500px;
+        }
+
+        .shade1 {
+            opacity: 0.2;
+        }
+
+        .shade2 {
+            opacity: 0.5;
+        }
+
+        .shade3 {
+            opacity: 0.7;
+        }
+
+        .shade4 {
+            opacity: 0.8;
+        }
+
+        .shade5 {
+            opacity: 0.9;
+        }
+
+        @keyframes ripple {
+            0% {
+                transform: scale(0.8);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(0.8);
+            }
+        }
+
+        .eyes {
+            width: 100%;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            column-gap: 20px;
+        }
+
+        .eye {
+            width: 85px;
+            height: 70px;
+            border-radius: 100%;
+            background-color: #090909;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: -64px;
+        }
+
+        .pupil {
+            width: 40px;
+            height: 40px;
+            border-radius: 101px;
+            background-color: #ffffff;
+        }
+
+        .hover-this {
+            transition: all 0.3s ease;
+        }
+
+        span {
+            display: inline-block;
+            font-family: 'Russo One', sans-serif;
+            font-weight: 400;
+            color: rgb(3, 3, 3)a0a;
+            font-size: 36px;
+            text-transform: uppercase;
+            transition: transform 0.1s linear;
+        }
+
+        .cursor {
+            pointer-events: none;
+            position: fixed;
+            padding: 0.3rem;
+            background-color: #010101;
+            border-radius: 50%;
+            mix-blend-mode: difference;
+            transition: transform 0.3s ease;
+        }
+
+        .hover-this:hover~.cursor {
+            transform: translate(-50%, -50%) scale(8);
+        }
+
+        @media(min-width: 900px) {
+            nav {
+                display: flex;
+                justify-content: space-around;
+            }
+        }
+
+        @media(max-width: 900px) {
+            nav {
+                top: 30%;
+            }
+
+            .hover-this {
+                width: 100%;
+                padding: 20px 0;
+                display: inline-block;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-primary bg-gradient " style="--bs-bg-opacity: .5;">
+    <div class="ripple-background">
+        <div class="circle xxlarge shade1"></div>
+        <div class="circle xlarge shade2"></div>
+        <div class="circle large shade3"></div>
+        <div class="circle medium shade4"></div>
+        <div class="circle small shade5"></div>
+    </div>
+
+    <div class="container d-flex align-items-center justify-content-center vh-100">
+        <div class="card" style="width: 25rem; height: 30rem;">
+            <div class="eyes">
+                <div class="eye">
+                    <div class="pupil"></div>
+                </div>
+                <div class="eye">
+                    <div class="pupil"></div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="text-center">
+                    <a href="#" class="hover-this"><span>Login</span></a>
+                    <h3 class="card-subtitle mb-3">{{ message }}</h3>
+                </div>
+                <form action="/login" method="post">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <div class="input-group">
+                            <span class="input-group-text" id="basic-addon1">@</span>
+                            <input type="text" class="form-control" placeholder="Username" name="username"
+                                aria-label="Username" aria-describedby="basic-addon1" style="max-width: 500px;">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password"
+                            style="max-width: 500px;">
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+
+                    <div class="text-center m-3">
+                        Want to Creat account <a href="{{ url_for('signup') }}">sign-up</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    // get both pupils
+    const pupils = document.querySelectorAll(".eye .pupil");
+    window.addEventListener("mousemove", (e) => {
+        pupils.forEach((pupil) => {
+            // get x and y postion of cursor
+            var rect = pupil.getBoundingClientRect();
+            var x = (e.pageX - rect.left) / 30 + "px";
+            var y = (e.pageY - rect.top) / 30 + "px";
+            pupil.style.transform = "translate3d(" + x + "," + y + ", 0px)";
+        });
+    });
+
+    (function () {
+
+        const link = document.querySelectorAll('nav > .hover-this');
+        const cursor = document.querySelector('.cursor');
+
+        const animateit = function (e) {
+            const span = this.querySelector('span');
+            const { offsetX: x, offsetY: y } = e,
+                { offsetWidth: width, offsetHeight: height } = this,
+
+                move = 25,
+                xMove = x / width * (move * 2) - move,
+                yMove = y / height * (move * 2) - move;
+
+            span.style.transform = `translate(${xMove}px, ${yMove}px)`;
+
+            if (e.type === 'mouseleave') span.style.transform = '';
+        };
+
+        const editCursor = e => {
+            const { clientX: x, clientY: y } = e;
+            cursor.style.left = x + 'px';
+            cursor.style.top = y + 'px';
+        };
+
+        link.forEach(b => b.addEventListener('mousemove', animateit));
+        link.forEach(b => b.addEventListener('mouseleave', animateit));
+        window.addEventListener('mousemove', editCursor);
+
+    })();
+</script>
+
+</html>

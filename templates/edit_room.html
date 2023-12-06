@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HaiChat</title>
+    <!-- Add Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+       
+        body {
+            background: #6eb0f3;
+        }
+        .container {
+            margin-top: 250px; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="text-center">Edit Room</h1>
+                <h3>{{ message }}</h3>
+                <form method="post">
+                    <div class="form-group">
+                        <label>Room Name:</label>
+                        <input type="text" class="form-control" name="room_name" value="{{ room.name }}">
+                    </div>
+                    <div class="form-group">
+                        <label>Members:</label>
+                        <input type="text" class="form-control" name="members" value="{{ room_members_str }}">
+                    </div>
+                    <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+ 
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEX/ibVlT2A8tc1nS5MxydL00Z0F/V6CZ86T" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
